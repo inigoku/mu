@@ -199,6 +199,47 @@ def convert_mesh_to_stl(
     return mesh
 
 
+def fuse_front_back_meshes(
+    front_mesh_path: Path,
+    back_mesh_path: Path,
+    output_stl: Path,
+    base_size_mm: float = 30.0,
+) -> trimesh.Trimesh:
+    """
+    Si generas 2 modelos gratuitos de 1 sola imagen en Tripo3D (uno con elektra_frontal.png
+    y otro con elektra_trasera.png), esta función alinea ambos sobre la peana de 30x30 mm,
+    rota 180° el modelo trasero y los fusiona en un único .STL.
+    """
+    with tempfile.NamedTemporaryFile(suffix=".stl", delete=False) as tf, tempfile.NamedTemporaryFile(
+        suffix=".stl", delete=False
+    ) as tb:
+        f_tmp, b_tmp = Path(tf.name), Path(tb.name)
+
+    m_front = convert_mesh_to_stl(front_mesh_path, f_tmp, base_size_mm)
+    m_back = convert_mesh_to_stl(back_mesh_path, b_tmp, base_size_mm)
+
+    # Rotar 180 grados en Z el modelo generado desde la vista trasera
+    m_back.vertices[:, 0] = -m_back.vertices[:, 0]
+    m_back.vertices[:, 1] = -m_back.vertices[:, 1]
+
+    # Conservar la mitad delantera (Y <= 1.5 mm) de m_front y la mitad trasera (Y >= -1.5 mm) de m_back
+    c_front = m_front.triangles_center
+    c_back = m_back.triangles_center
+
+    faces_f = m_front.faces[c_front[:, 1] <= 1.5]
+    faces_b = m_back.faces[c_back[:, 1] >= -1.5]
+
+    sub_f = trimesh.Trimesh(vertices=m_front.vertices, faces=faces_f, process=True)
+    sub_b = trimesh.Trimesh(vertices=m_back.vertices, faces=faces_b, process=True)
+
+    fused = trimesh.util.concatenate([sub_f, sub_b])
+    fused.export(output_stl)
+    print(
+        f"[OK] Mallas frontal y trasera fusionadas con peana {base_size_mm:.1f}x{base_size_mm:.1f} mm en: {output_stl}"
+    )
+    return fused
+
+
 def try_tripo3d_multiview(
     front_png: Path,
     back_png: Path,
@@ -647,6 +688,14 @@ def main() -> None:
         help="Convierte un archivo .glb/.obj descargado de studio.tripo3d.ai o makerworld.com a .STL",
     )
     parser.add_argument(
+        "--fuse-meshes",
+        nargs=2,
+        type=Path,
+        metavar=("FRONT_GLB", "BACK_GLB"),
+        default=None,
+        help="Fusiona 2 modelos .glb gratuitos de 1 sola vista (frontal y trasera) en un único .STL 30x30 mm",
+    )
+    parser.add_argument(
         "--local-only",
         action="store_true",
         help="Omitir intento cloud (útil bajo proxy corporativo Zscaler) y generar directamente en local",
@@ -657,6 +706,11 @@ def main() -> None:
     front_png = out_dir / "elektra_frontal.png"
     back_png = out_dir / "elektra_trasera.png"
     preview_png = out_dir / "elektra_stl_preview.png"
+
+    if args.fuse_meshes:
+        mesh = fuse_front_back_meshes(args.fuse_meshes[0], args.fuse_meshes[1], args.output)
+        render_stl_preview(mesh, preview_png)
+        return
 
     if args.from_mesh:
         mesh = convert_mesh_to_stl(args.from_mesh, args.output)

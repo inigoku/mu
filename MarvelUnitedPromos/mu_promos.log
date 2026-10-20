@@ -1,0 +1,341 @@
+2026-10-15 15:39:16,694 WARNING Retrying (Retry(total=3, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:39:20,352 WARNING Retrying (Retry(total=2, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:39:27,636 WARNING Retrying (Retry(total=1, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:39:42,110 WARNING Retrying (Retry(total=0, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:39:42,188 ERROR Iron Man: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:39:42,195 ERROR Captain America: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:39:42,201 ERROR Black Widow: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:39:42,207 ERROR Captain Marvel: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:39:42,213 ERROR Hulk: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:39:42,218 ERROR Wasp: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:39:42,223 ERROR Ant-Man: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:39:42,230 ERROR Red Skull: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:40:12,372 WARNING Retrying (Retry(total=3, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:40:16,031 WARNING Retrying (Retry(total=2, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:40:23,311 WARNING Retrying (Retry(total=1, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:40:37,815 WARNING Retrying (Retry(total=0, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:40:37,981 ERROR Iron Man: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:40:37,987 ERROR Captain America: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:40:37,992 ERROR Black Widow: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:40:38,001 ERROR Captain Marvel: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:40:38,006 ERROR Hulk: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:40:38,010 ERROR Wasp: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:40:38,015 ERROR Ant-Man: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:40:38,019 ERROR Red Skull: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:42:24,963 ERROR Iron Man: Could not find a suitable TLS CA certificate bundle, invalid path: C:\path\to\trusted-ca-bundle.pem
+2026-10-15 15:42:27,472 ERROR Captain America: Could not find a suitable TLS CA certificate bundle, invalid path: C:\path\to\trusted-ca-bundle.pem
+2026-10-15 15:42:29,974 ERROR Black Widow: Could not find a suitable TLS CA certificate bundle, invalid path: C:\path\to\trusted-ca-bundle.pem
+2026-10-15 15:42:32,473 ERROR Captain Marvel: Could not find a suitable TLS CA certificate bundle, invalid path: C:\path\to\trusted-ca-bundle.pem
+2026-10-15 15:42:34,974 ERROR Hulk: Could not find a suitable TLS CA certificate bundle, invalid path: C:\path\to\trusted-ca-bundle.pem
+2026-10-15 15:42:37,474 ERROR Wasp: Could not find a suitable TLS CA certificate bundle, invalid path: C:\path\to\trusted-ca-bundle.pem
+2026-10-15 15:42:39,974 ERROR Ant-Man: Could not find a suitable TLS CA certificate bundle, invalid path: C:\path\to\trusted-ca-bundle.pem
+2026-10-15 15:42:42,475 ERROR Red Skull: Could not find a suitable TLS CA certificate bundle, invalid path: C:\path\to\trusted-ca-bundle.pem
+2026-10-15 15:43:45,626 WARNING Retrying (Retry(total=3, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:43:49,285 WARNING Retrying (Retry(total=2, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:50:22,385 WARNING Retrying (Retry(total=3, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:50:26,044 WARNING Retrying (Retry(total=2, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:50:33,317 WARNING Retrying (Retry(total=1, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:50:47,837 WARNING Retrying (Retry(total=0, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:50:47,939 ERROR Iron Man: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:50:47,943 ERROR Captain America: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:50:47,947 ERROR Black Widow: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:50:47,953 ERROR Captain Marvel: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:50:47,959 ERROR Hulk: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:50:47,966 ERROR Wasp: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:50:47,970 ERROR Ant-Man: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:50:47,974 ERROR Red Skull: Acceso automático omitido: error:HTTPSConnectionPool(host='hallofunited.com', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))
+2026-10-15 15:51:43,651 INFO OK Iron Man -> images\Temporada_1\CORE_BOX\Iron_Man\promo_principal.jpg
+2026-10-15 15:54:27,723 WARNING Retrying (Retry(total=3, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:54:31,383 WARNING Retrying (Retry(total=2, connect=4, read=4, redirect=None, status=4)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))': /robots.txt
+2026-10-15 15:54:47,740 INFO OK Captain America -> images\Temporada_1\CORE_BOX\Captain_America\promo_principal.jpg
+2026-10-15 15:55:52,186 INFO OK Black Widow -> images\Temporada_1\CORE_BOX\Black_Widow\promo_principal.jpg
+2026-10-15 15:56:29,707 INFO OK Captain Marvel -> images\Temporada_1\CORE_BOX\Captain_Marvel\promo_principal.jpg
+2026-10-15 15:56:35,034 INFO OK Hulk -> images\Temporada_1\CORE_BOX\Hulk\promo_principal.jpg
+2026-10-15 15:56:36,690 ERROR Wasp: Sin candidato promocional válido. 
+2026-10-15 15:56:41,729 INFO OK Ant-Man -> images\Temporada_1\CORE_BOX\Black_Widow\promo_principal.jpg
+2026-10-15 15:56:44,197 ERROR Red Skull: Sin candidato promocional válido. 
+2026-10-15 15:56:46,727 ERROR Ultron: Sin candidato promocional válido. 
+2026-10-15 15:56:49,192 ERROR Taskmaster: Sin candidato promocional válido. 
+2026-10-15 15:57:41,003 ERROR Wasp: Sin candidato promocional válido. 
+2026-10-15 15:57:43,488 ERROR Red Skull: Sin candidato promocional válido. 
+2026-10-15 15:57:45,980 ERROR Ultron: Sin candidato promocional válido. 
+2026-10-15 15:57:48,490 ERROR Taskmaster: Sin candidato promocional válido. 
+2026-10-15 15:57:48,914 ERROR Hawkeye: Bloqueado por robots/política: http_403
+2026-10-15 15:57:59,009 INFO OK Nick Fury -> images\Temporada_1\PROMOS_STRETCH_GOALS\Nick_Fury\promo_principal.jpg
+2026-10-15 15:58:14,680 INFO OK Corvus Glaive -> images\Temporada_1\PROMOS_STRETCH_GOALS\Corvus_Glaive\promo_principal.jpg
+2026-10-15 15:58:23,976 INFO OK War Machine -> images\Temporada_1\PROMOS_STRETCH_GOALS\War_Machine\promo_principal.jpg
+2026-10-15 15:58:33,844 INFO OK Vision -> images\Temporada_1\PROMOS_STRETCH_GOALS\Vision\promo_principal.jpg
+2026-10-15 15:58:43,795 INFO OK Scarlet Witch -> images\Temporada_1\PROMOS_STRETCH_GOALS\Scarlet_Witch\promo_principal.jpg
+2026-10-15 15:58:54,345 INFO OK Quicksilver -> images\Temporada_1\PROMOS_STRETCH_GOALS\Quicksilver\promo_principal.jpg
+2026-10-15 15:59:04,066 INFO OK Falcon -> images\Temporada_1\PROMOS_STRETCH_GOALS\Falcon\promo_principal.jpg
+2026-10-15 15:59:14,292 INFO OK Mockingbird -> images\Temporada_1\PROMOS_STRETCH_GOALS\Mockingbird\promo_principal.jpg
+2026-10-15 15:59:23,924 INFO OK Ms. Marvel -> images\Temporada_1\PROMOS_STRETCH_GOALS\Ms._Marvel\promo_principal.jpg
+2026-10-15 15:59:33,900 INFO OK Okoye -> images\Temporada_1\PROMOS_STRETCH_GOALS\Okoye\promo_principal.jpg
+2026-10-15 15:59:43,753 INFO OK Spider-Woman -> images\Temporada_1\PROMOS_STRETCH_GOALS\Spider-Woman\promo_principal.jpg
+2026-10-15 15:59:54,135 INFO OK She-Hulk -> images\Temporada_1\PROMOS_STRETCH_GOALS\She-Hulk\promo_principal.jpg
+2026-10-15 16:00:03,812 INFO OK America Chavez -> images\Temporada_1\PROMOS_STRETCH_GOALS\America_Chavez\promo_principal.jpg
+2026-10-15 16:00:13,789 INFO OK Doctor Strange -> images\Temporada_1\PROMOS_STRETCH_GOALS\Doctor_Strange\promo_principal.jpg
+2026-10-15 16:00:24,428 INFO OK Squirrel Girl -> images\Temporada_1\PROMOS_STRETCH_GOALS\Squirrel_Girl\promo_principal.jpg
+2026-10-15 16:00:33,994 INFO OK Nova -> images\Temporada_1\PROMOS_STRETCH_GOALS\Nova\promo_principal.jpg
+2026-10-15 16:00:43,947 INFO OK Shang-Chi -> images\Temporada_1\PROMOS_STRETCH_GOALS\Shang-Chi\promo_principal.jpg
+2026-10-15 16:00:53,866 INFO OK Moon Knight -> images\Temporada_1\PROMOS_STRETCH_GOALS\Moon_Knight\promo_principal.jpg
+2026-10-15 16:01:04,063 INFO OK Iron Fist -> images\Temporada_1\PROMOS_STRETCH_GOALS\Iron_Fist\promo_principal.jpg
+2026-10-15 16:01:13,973 INFO OK Luke Cage -> images\Temporada_1\PROMOS_STRETCH_GOALS\Luke_Cage\promo_principal.jpg
+2026-10-15 16:01:23,967 INFO OK Jessica Jones -> images\Temporada_1\PROMOS_STRETCH_GOALS\Jessica_Jones\promo_principal.jpg
+2026-10-15 16:01:34,107 INFO OK Daredevil -> images\Temporada_1\PROMOS_STRETCH_GOALS\Daredevil\promo_principal.jpg
+2026-10-15 16:01:44,278 INFO OK Elektra -> images\Temporada_1\PROMOS_STRETCH_GOALS\Elektra\promo_principal.jpg
+2026-10-15 16:01:54,229 INFO OK Punisher -> images\Temporada_1\PROMOS_STRETCH_GOALS\Punisher\promo_principal.jpg
+2026-10-15 16:02:04,340 INFO OK Blade -> images\Temporada_1\PROMOS_STRETCH_GOALS\Blade\promo_principal.jpg
+2026-10-15 16:02:16,279 INFO OK Ghost Rider -> images\Temporada_1\PROMOS_STRETCH_GOALS\Ghost_Rider\promo_principal.jpg
+2026-10-15 16:02:26,464 INFO OK Drax -> images\Temporada_1\PROMOS_STRETCH_GOALS\Drax\promo_principal.jpg
+2026-10-15 16:02:36,787 INFO OK Mantis -> images\Temporada_1\PROMOS_STRETCH_GOALS\Mantis\promo_principal.jpg
+2026-10-15 16:02:46,319 INFO OK Nebula -> images\Temporada_1\PROMOS_STRETCH_GOALS\Nebula\promo_principal.jpg
+2026-10-15 16:02:56,562 INFO OK Yondu -> images\Temporada_1\PROMOS_STRETCH_GOALS\Yondu\promo_principal.jpg
+2026-10-15 16:03:09,279 INFO OK Adam Warlock -> images\Temporada_1\PROMOS_STRETCH_GOALS\Adam_Warlock\promo_principal.jpg
+2026-10-15 16:03:19,267 INFO OK Howard the Duck -> images\Temporada_1\PROMOS_STRETCH_GOALS\Howard_the_Duck\promo_principal.jpg
+2026-10-15 16:03:35,221 INFO OK Baron Zemo -> images\Temporada_1\VILLANOS_STRETCH_GOALS\Baron_Zemo\promo_principal.jpg
+2026-10-15 16:03:49,305 INFO OK Kang -> images\Temporada_1\VILLANOS_STRETCH_GOALS\Kang\promo_principal.jpg
+2026-10-15 16:03:56,155 ERROR M.O.D.O.K.: Sin candidato promocional válido. https://hallofunited.com/wp-content/uploads/2021/09/cropped-hou-avatar-final-300.png: Resolución insuficiente: 300x288 | https://hallofheroeshome.files.wordpress.com/2020/01/patreon-transparent-button-2-1.png?w=578: Imagen demasiado pequeña | https://hallofunited.com/wp-content/uploads/2021/09/hou-fav-228px-copy.png: Imagen demasiado pequeña
+2026-10-15 16:04:13,464 INFO OK Bullseye -> images\Temporada_1\VILLANOS_STRETCH_GOALS\Bullseye\promo_principal.jpg
+2026-10-15 16:04:32,049 INFO OK Kingpin -> images\Temporada_1\VILLANOS_STRETCH_GOALS\Kingpin\promo_principal.jpg
+2026-10-15 16:04:46,796 INFO OK Rhino -> images\Temporada_1\VILLANOS_STRETCH_GOALS\Rhino\promo_principal.jpg
+2026-10-15 16:05:01,698 INFO OK Carnage -> images\Temporada_1\VILLANOS_STRETCH_GOALS\Carnage\promo_principal.jpg
+2026-10-15 16:05:19,399 INFO OK Hela -> images\Temporada_1\VILLANOS_STRETCH_GOALS\Hela\promo_principal.jpg
+2026-10-15 16:05:38,132 INFO OK Dormammu -> images\Temporada_1\VILLANOS_STRETCH_GOALS\Dormammu\promo_principal.jpg
+2026-10-15 16:05:41,103 INFO OK Black Panther -> images\Temporada_1\CORE_BOX\Black_Widow\promo_principal.jpg
+2026-10-15 16:05:43,594 ERROR Shuri: Sin candidato promocional válido. 
+2026-10-15 16:05:46,061 ERROR Killmonger: Sin candidato promocional válido. 
+2026-10-15 16:05:48,564 ERROR Venom: Sin candidato promocional válido. 
+2026-10-15 16:05:53,838 INFO OK Green Goblin -> images\Temporada_1\EXPANSIONES\Green_Goblin\promo_principal.jpg
+2026-10-15 16:05:59,314 INFO OK Spider-Man -> images\Temporada_1\EXPANSIONES\Spider-Man\promo_principal.jpg
+2026-10-15 16:06:01,065 ERROR Miles Morales: Sin candidato promocional válido. 
+2026-10-15 16:06:06,100 INFO OK Spider-Gwen -> images\Temporada_1\EXPANSIONES\Spider-Man\promo_principal.jpg
+2026-10-15 16:06:08,567 ERROR Thor: Sin candidato promocional válido. 
+2026-10-15 16:06:11,069 ERROR Valkyrie: Sin candidato promocional válido. 
+2026-10-15 16:06:13,570 ERROR Korg: Sin candidato promocional válido. 
+2026-10-15 16:06:16,067 ERROR Loki: Sin candidato promocional válido. 
+2026-10-15 16:06:21,538 INFO OK Star-Lord -> images\Temporada_1\EXPANSIONES\Star-Lord\promo_principal.jpg
+2026-10-15 16:06:23,578 ERROR Rocket: Sin candidato promocional válido. 
+2026-10-15 16:06:26,077 ERROR Groot: Sin candidato promocional válido. 
+2026-10-15 16:06:28,575 ERROR Gamora: Sin candidato promocional válido. 
+2026-10-15 16:06:31,069 ERROR Ronan: Sin candidato promocional válido. 
+2026-10-15 16:06:33,578 ERROR Thanos: Sin candidato promocional válido. 
+2026-10-15 16:06:36,075 ERROR Proxima Midnight: Sin candidato promocional válido. 
+2026-10-15 16:06:38,574 ERROR Ebony Maw: Sin candidato promocional válido. 
+2026-10-15 16:06:41,078 ERROR Professor X: Sin candidato promocional válido. 
+2026-10-15 16:06:43,577 ERROR Cyclops: Sin candidato promocional válido. 
+2026-10-15 16:06:46,077 ERROR Jean Grey: Sin candidato promocional válido. 
+2026-10-15 16:06:48,600 ERROR Beast: Sin candidato promocional válido. 
+2026-10-15 16:06:51,075 ERROR Storm: Sin candidato promocional válido. 
+2026-10-15 16:06:53,576 ERROR Wolverine: Sin candidato promocional válido. 
+2026-10-15 16:06:56,078 ERROR Magneto: Sin candidato promocional válido. 
+2026-10-15 16:06:58,585 ERROR Mystique: Sin candidato promocional válido. 
+2026-10-15 16:07:01,079 ERROR Sabretooth: Sin candidato promocional válido. 
+2026-10-15 16:07:03,634 ERROR Juggernaut: Sin candidato promocional válido. 
+2026-10-15 16:07:11,426 INFO OK Polaris -> images\Temporada_2\HÉROES_STRETCH_GOALS\Polaris\promo_principal.jpg
+2026-10-15 16:07:18,779 INFO OK Feral -> images\Temporada_2\HÉROES_STRETCH_GOALS\Feral\promo_principal.jpg
+2026-10-15 16:07:26,307 INFO OK Strong Guy -> images\Temporada_2\HÉROES_STRETCH_GOALS\Strong_Guy\promo_principal.jpg
+2026-10-15 16:07:36,266 INFO OK Boom-Boom -> images\Temporada_2\HÉROES_STRETCH_GOALS\Boom-Boom\promo_principal.jpg
+2026-10-15 16:07:43,840 INFO OK Longshot -> images\Temporada_2\HÉROES_STRETCH_GOALS\Longshot\promo_principal.jpg
+2026-10-15 16:07:51,945 INFO OK Dazzler -> images\Temporada_2\HÉROES_STRETCH_GOALS\Dazzler\promo_principal.jpg
+2026-10-15 16:07:59,455 INFO OK Sunspot -> images\Temporada_2\HÉROES_STRETCH_GOALS\Sunspot\promo_principal.jpg
+2026-10-15 16:08:07,023 INFO OK Magik -> images\Temporada_2\HÉROES_STRETCH_GOALS\Magik\promo_principal.jpg
+2026-10-15 16:08:14,664 INFO OK Firestar -> images\Temporada_2\HÉROES_STRETCH_GOALS\Firestar\promo_principal.jpg
+2026-10-15 16:08:21,963 INFO OK Warpath -> images\Temporada_2\HÉROES_STRETCH_GOALS\Warpath\promo_principal.jpg
+2026-10-15 16:08:31,981 INFO OK Phoenix -> images\Temporada_2\HÉROES_STRETCH_GOALS\Phoenix\promo_principal.jpg
+2026-10-15 16:08:39,546 INFO OK Sunfire -> images\Temporada_2\HÉROES_STRETCH_GOALS\Sunfire\promo_principal.jpg
+2026-10-15 16:08:47,062 INFO OK Wolfsbane -> images\Temporada_2\HÉROES_STRETCH_GOALS\Wolfsbane\promo_principal.jpg
+2026-10-15 16:08:57,076 INFO OK Blink -> images\Temporada_2\HÉROES_STRETCH_GOALS\Blink\promo_principal.jpg
+2026-10-15 16:09:06,965 INFO OK Havok -> images\Temporada_2\HÉROES_STRETCH_GOALS\Havok\promo_principal.jpg
+2026-10-15 16:09:14,641 INFO OK Fantomex -> images\Temporada_2\HÉROES_STRETCH_GOALS\Fantomex\promo_principal.jpg
+2026-10-15 16:09:22,387 INFO OK Captain Britain -> images\Temporada_2\HÉROES_STRETCH_GOALS\Captain_Britain\promo_principal.jpg
+2026-10-15 16:09:32,321 INFO OK Multiple Man -> images\Temporada_2\HÉROES_STRETCH_GOALS\Multiple_Man\promo_principal.jpg
+2026-10-15 16:09:39,529 INFO OK Weapon X -> images\Temporada_2\HÉROES_STRETCH_GOALS\Weapon_X\promo_principal.jpg
+2026-10-15 16:09:47,067 INFO OK Pixie -> images\Temporada_2\HÉROES_STRETCH_GOALS\Pixie\promo_principal.jpg
+2026-10-15 16:09:54,607 INFO OK Doop -> images\Temporada_2\HÉROES_STRETCH_GOALS\Doop\promo_principal.jpg
+2026-10-15 16:10:01,949 INFO OK X-23 -> images\Temporada_2\HÉROES_STRETCH_GOALS\X-23\promo_principal.jpg
+2026-10-15 16:10:09,589 INFO OK Mirage -> images\Temporada_2\HÉROES_STRETCH_GOALS\Mirage\promo_principal.jpg
+2026-10-15 16:10:17,151 INFO OK Warlock -> images\Temporada_2\HÉROES_STRETCH_GOALS\Warlock\promo_principal.jpg
+2026-10-15 16:10:29,566 INFO OK Kitty Pryde & Lockheed -> images\Temporada_2\HÉROES_STRETCH_GOALS\Kitty_Pryde_and_Lockheed\promo_principal.jpg
+2026-10-15 16:10:36,973 INFO OK Gwenpool -> images\Temporada_2\HÉROES_STRETCH_GOALS\Gwenpool\promo_principal.jpg
+2026-10-15 16:10:44,462 INFO OK Guardian -> images\Temporada_2\HÉROES_STRETCH_GOALS\Guardian\promo_principal.jpg
+2026-10-15 16:10:52,106 INFO OK Puck -> images\Temporada_2\HÉROES_STRETCH_GOALS\Puck\promo_principal.jpg
+2026-10-15 16:10:59,569 INFO OK Northstar -> images\Temporada_2\HÉROES_STRETCH_GOALS\Northstar\promo_principal.jpg
+2026-10-15 16:11:09,763 INFO OK Snowbird -> images\Temporada_2\HÉROES_STRETCH_GOALS\Snowbird\promo_principal.jpg
+2026-10-15 16:11:17,011 INFO OK Sasquatch -> images\Temporada_2\HÉROES_STRETCH_GOALS\Sasquatch\promo_principal.jpg
+2026-10-15 16:11:24,524 INFO OK Nightcrawler -> images\Temporada_2\HÉROES_STRETCH_GOALS\Nightcrawler\promo_principal.jpg
+2026-10-15 16:11:37,116 INFO OK Cloak -> images\Temporada_2\HÉROES_STRETCH_GOALS\Cloak\promo_principal.jpg
+2026-10-15 16:11:49,471 INFO OK Dagger -> images\Temporada_2\HÉROES_STRETCH_GOALS\Dagger\promo_principal.jpg
+2026-10-15 16:11:59,774 INFO OK Legion -> images\Temporada_2\ANTIHÉROES_STRETCH_GOALS\Legion\promo_principal.jpg
+2026-10-15 16:12:07,072 INFO OK Emma Frost -> images\Temporada_2\ANTIHÉROES_STRETCH_GOALS\Emma_Frost\promo_principal.jpg
+2026-10-15 16:12:14,527 INFO OK Namor -> images\Temporada_2\ANTIHÉROES_STRETCH_GOALS\Namor\promo_principal.jpg
+2026-10-15 16:12:24,581 INFO OK Spiral -> images\Temporada_2\ANTIHÉROES_STRETCH_GOALS\Spiral\promo_principal.jpg
+2026-10-15 16:20:06,172 WARNING Retrying (Retry(total=3, connect=3, read=4, redirect=None, status=4)) after connection broken by 'NameResolutionError("HTTPSConnection(host='hallofunited.com', port=443): Failed to resolve 'hallofunited.com' ([Errno 11001] getaddrinfo failed)")': /wp-content/uploads/2021/05/aa1-3.png
+2026-10-15 16:20:10,006 WARNING Retrying (Retry(total=2, connect=2, read=4, redirect=None, status=4)) after connection broken by 'NameResolutionError("HTTPSConnection(host='hallofunited.com', port=443): Failed to resolve 'hallofunited.com' ([Errno 11001] getaddrinfo failed)")': /wp-content/uploads/2021/05/aa1-3.png
+2026-10-15 16:20:38,224 WARNING Retrying (Retry(total=1, connect=2, read=3, redirect=None, status=4)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='hallofunited.com', port=443): Read timed out. (read timeout=20)")': /wp-content/uploads/2021/05/aa1-3.png
+2026-10-15 16:20:39,537 INFO OK Marrow -> images\Temporada_2\ANTIHÉROES_STRETCH_GOALS\Marrow\promo_principal.jpg
+2026-10-15 16:20:46,871 INFO OK Shadow King -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Shadow_King\promo_principal.jpg
+2026-10-15 16:20:56,888 INFO OK Callisto -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Callisto\promo_principal.jpg
+2026-10-15 16:21:06,899 INFO OK Deathbird -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Deathbird\promo_principal.jpg
+2026-10-15 16:21:14,565 INFO OK Arcade -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Arcade\promo_principal.jpg
+2026-10-15 16:21:24,378 INFO OK Lady Deathstrike -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Lady_Deathstrike\promo_principal.jpg
+2026-10-15 16:21:36,870 INFO OK Sauron -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Sauron\promo_principal.jpg
+2026-10-15 16:21:44,375 INFO OK Silver Samurai -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Silver_Samurai\promo_principal.jpg
+2026-10-15 16:21:51,977 INFO OK Omega Red -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Omega_Red\promo_principal.jpg
+2026-10-15 16:22:01,888 INFO OK Stryfe -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Stryfe\promo_principal.jpg
+2026-10-15 16:22:14,382 INFO OK Brood Queen -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Brood_Queen\promo_principal.jpg
+2026-10-15 16:22:32,432 INFO OK Mojo -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Mojo\promo_principal.jpg
+2026-10-15 16:22:42,040 INFO OK Dark Phoenix -> images\Temporada_2\HÉROES_STRETCH_GOALS\Phoenix\promo_principal.jpg
+2026-10-15 16:22:54,580 INFO OK Onslaught -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Onslaught\promo_principal.jpg
+2026-10-15 16:23:01,968 INFO OK Avalanche -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Avalanche\promo_principal.jpg
+2026-10-15 16:23:09,511 INFO OK Mastermind -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Mastermind\promo_principal.jpg
+2026-10-15 16:23:26,899 INFO OK Toad -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Toad\promo_principal.jpg
+2026-10-15 16:23:44,381 INFO OK Blob -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Toad\promo_principal.jpg
+2026-10-15 16:24:01,746 INFO OK Pyro -> images\Temporada_2\VILLANOS_STRETCH_GOALS\Toad\promo_principal.jpg
+2026-10-15 16:24:05,327 ERROR Storm - Mohawk: Sin candidato promocional válido. https://hallofheroeshome.files.wordpress.com/2020/01/patreon-transparent-button-2-1.png?w=578: Imagen demasiado pequeña
+2026-10-15 16:24:06,774 ERROR Old Man Logan: Sin candidato promocional válido. https://hallofheroeshome.files.wordpress.com/2020/01/patreon-transparent-button-2-1.png?w=578: Imagen demasiado pequeña
+2026-10-15 16:24:12,492 INFO OK Apocalypse -> images\Temporada_2\EXPANSIONES\Apocalypse\promo_principal.jpg
+2026-10-15 16:24:14,260 ERROR Famine: Sin candidato promocional válido. 
+2026-10-15 16:24:16,726 ERROR Pestilence: Sin candidato promocional válido. 
+2026-10-15 16:24:22,009 INFO OK War -> images\Temporada_2\EXPANSIONES\War\promo_principal.jpg
+2026-10-15 16:24:24,228 ERROR Death: Sin candidato promocional válido. 
+2026-10-15 16:24:26,735 ERROR Angel: Sin candidato promocional válido. 
+2026-10-15 16:24:29,228 ERROR Iceman: Sin candidato promocional válido. 
+2026-10-15 16:24:31,733 ERROR Colossus: Sin candidato promocional válido. 
+2026-10-15 16:24:34,230 ERROR Banshee: Sin candidato promocional válido. 
+2026-10-15 16:24:36,738 ERROR Forge: Sin candidato promocional válido. 
+2026-10-15 16:24:39,226 ERROR Bishop: Sin candidato promocional válido. 
+2026-10-15 16:24:41,731 ERROR Sebastian Shaw: Sin candidato promocional válido. 
+2026-10-15 16:24:47,381 INFO OK X-Force Deadpool -> images\Temporada_2\EXPANSIONES\X-Force_Deadpool\promo_principal.jpg
+2026-10-15 16:24:49,232 ERROR Cable: Sin candidato promocional válido. 
+2026-10-15 16:24:51,738 ERROR Domino: Sin candidato promocional válido. 
+2026-10-15 16:24:54,230 ERROR Cannonball: Sin candidato promocional válido. 
+2026-10-15 16:24:56,734 ERROR Caliban: Sin candidato promocional válido. 
+2026-10-15 16:24:59,231 ERROR Nimrod: Sin candidato promocional válido. 
+2026-10-15 16:25:06,721 ERROR Sentinel I: Sin candidato promocional válido. https://hallofunited.com/wp-content/uploads/2021/09/cropped-hou-avatar-final-300.png: Resolución insuficiente: 300x288 | https://hallofunited.com/wp-content/uploads/2021/09/hou-fav-228px-copy.png: Imagen demasiado pequeña
+2026-10-15 16:25:09,233 ERROR Sentinel II: Sin candidato promocional válido. 
+2026-10-15 16:25:11,748 ERROR Sentinel III: Sin candidato promocional válido. 
+2026-10-15 16:25:14,239 ERROR Captain Carter: Sin candidato promocional válido. 
+2026-10-15 16:25:16,736 ERROR Loki: Sin candidato promocional válido. 
+2026-10-15 16:25:21,778 INFO OK Shuri Black Panther -> images\Temporada_1\CORE_BOX\Black_Widow\promo_principal.jpg
+2026-10-15 16:25:26,789 INFO OK Spider-Man 2099 -> images\Temporada_1\EXPANSIONES\Spider-Man\promo_principal.jpg
+2026-10-15 16:25:29,237 ERROR Mighty Thor: Sin candidato promocional válido. 
+2026-10-15 16:25:29,705 ERROR Ironheart: Playwright no permitido para este dominio
+2026-10-15 16:25:29,711 ERROR Cosmic Ghost Rider: Playwright no permitido para este dominio
+2026-10-15 16:25:31,737 ERROR Immortus: Sin candidato promocional válido. 
+2026-10-15 16:25:34,242 ERROR Maestro: Sin candidato promocional válido. 
+2026-10-15 16:25:36,739 ERROR Emperor Doom: Sin candidato promocional válido. 
+2026-10-15 16:25:39,239 ERROR Wrecker: Sin candidato promocional válido. 
+2026-10-15 16:25:41,739 ERROR Thunderball: Sin candidato promocional válido. 
+2026-10-15 16:25:44,242 ERROR Piledriver: Sin candidato promocional válido. 
+2026-10-15 16:25:46,746 ERROR Bulldozer: Sin candidato promocional válido. 
+2026-10-15 16:25:59,694 INFO OK Corsair -> images\Temporada_3\HÉROES_STRETCH_GOALS\Corsair\promo_principal.jpg
+2026-10-15 16:26:11,883 INFO OK Black Knight -> images\Temporada_3\HÉROES_STRETCH_GOALS\Black_Knight\promo_principal.jpg
+2026-10-15 16:26:26,921 INFO OK Ch'od -> images\Temporada_3\HÉROES_STRETCH_GOALS\Ch_od\promo_principal.jpg
+2026-10-15 16:26:37,159 INFO OK Songbird -> images\Temporada_3\HÉROES_STRETCH_GOALS\Songbird\promo_principal.jpg
+2026-10-15 16:26:49,559 INFO OK Hepzibah -> images\Temporada_3\HÉROES_STRETCH_GOALS\Hepzibah\promo_principal.jpg
+2026-10-15 16:27:02,300 INFO OK Cyborg Spider-Man -> images\Temporada_3\HÉROES_STRETCH_GOALS\Cyborg_Spider-Man\promo_principal.jpg
+2026-10-15 16:27:14,814 INFO OK Patriot -> images\Temporada_3\HÉROES_STRETCH_GOALS\Patriot\promo_principal.jpg
+2026-10-15 16:27:27,052 INFO OK Raza -> images\Temporada_3\HÉROES_STRETCH_GOALS\Raza\promo_principal.jpg
+2026-10-15 16:27:29,636 ERROR M: Sin candidato promocional válido. https://hallofheroeshome.files.wordpress.com/2020/01/patreon-transparent-button-2-1.png?w=578: Imagen demasiado pequeña
+2026-10-15 16:27:39,864 INFO OK Cypher -> images\Temporada_3\HÉROES_STRETCH_GOALS\Cypher\promo_principal.jpg
+2026-10-15 16:27:49,571 INFO OK Chamber -> images\Temporada_3\HÉROES_STRETCH_GOALS\Chamber\promo_principal.jpg
+2026-10-15 16:28:01,961 INFO OK Captain Britain - Betsy Braddock -> images\Temporada_3\HÉROES_STRETCH_GOALS\Captain_Britain_-_Betsy_Braddock\promo_principal.jpg
+2026-10-15 16:28:12,323 INFO OK Speed -> images\Temporada_3\HÉROES_STRETCH_GOALS\Speed\promo_principal.jpg
+2026-10-15 16:28:22,090 INFO OK Aurora -> images\Temporada_3\HÉROES_STRETCH_GOALS\Aurora\promo_principal.jpg
+2026-10-15 16:28:37,301 INFO OK Husk -> images\Temporada_3\HÉROES_STRETCH_GOALS\Husk\promo_principal.jpg
+2026-10-15 16:28:47,053 INFO OK Lilandra -> images\Temporada_3\HÉROES_STRETCH_GOALS\Lilandra\promo_principal.jpg
+2026-10-15 16:28:57,119 INFO OK Havok - X-Factor -> images\Temporada_3\HÉROES_STRETCH_GOALS\Havok_-_X-Factor\promo_principal.jpg
+2026-10-15 16:29:09,518 INFO OK Elsa Bloodstone -> images\Temporada_3\HÉROES_STRETCH_GOALS\Elsa_Bloodstone\promo_principal.jpg
+2026-10-15 16:29:19,531 INFO OK Kid Loki -> images\Temporada_3\HÉROES_STRETCH_GOALS\Kid_Loki\promo_principal.jpg
+2026-10-15 16:29:32,019 INFO OK Wiccan -> images\Temporada_3\HÉROES_STRETCH_GOALS\Wiccan\promo_principal.jpg
+2026-10-15 16:29:41,973 INFO OK Siryn -> images\Temporada_3\HÉROES_STRETCH_GOALS\Siryn\promo_principal.jpg
+2026-10-15 16:29:54,608 INFO OK Captain America - Sam Wilson -> images\Temporada_3\HÉROES_STRETCH_GOALS\Captain_America_-_Sam_Wilson\promo_principal.jpg
+2026-10-15 16:30:04,630 INFO OK Wong -> images\Temporada_3\HÉROES_STRETCH_GOALS\Wong\promo_principal.jpg
+2026-10-15 16:30:14,471 INFO OK Meggan -> images\Temporada_3\HÉROES_STRETCH_GOALS\Meggan\promo_principal.jpg
+2026-10-15 16:30:24,452 INFO OK Deathlok -> images\Temporada_3\HÉROES_STRETCH_GOALS\Deathlok\promo_principal.jpg
+2026-10-15 16:30:36,963 INFO OK Ghost Rider - Johnny Blaze -> images\Temporada_3\HÉROES_STRETCH_GOALS\Ghost_Rider_-_Johnny_Blaze\promo_principal.jpg
+2026-10-15 16:30:46,933 INFO OK Man-Thing -> images\Temporada_3\HÉROES_STRETCH_GOALS\Man-Thing\promo_principal.jpg
+2026-10-15 16:31:04,791 INFO OK Stature -> images\Temporada_3\HÉROES_STRETCH_GOALS\Stature\promo_principal.jpg
+2026-10-15 16:31:14,987 INFO OK Werewolf by Night -> images\Temporada_3\HÉROES_STRETCH_GOALS\Werewolf_by_Night\promo_principal.jpg
+2026-10-15 16:31:29,942 INFO OK Moon Girl & Devil Dinosaur -> images\Temporada_3\HÉROES_STRETCH_GOALS\Moon_Girl_and_Devil_Dinosaur\promo_principal.jpg
+2026-10-15 16:31:44,649 INFO OK Daken -> images\Temporada_3\ANTIHÉROES_STRETCH_GOALS\Daken\promo_principal.jpg
+2026-10-15 16:32:01,983 INFO OK Darkchild -> images\Temporada_3\ANTIHÉROES_STRETCH_GOALS\Darkchild\promo_principal.jpg
+2026-10-15 16:32:14,497 INFO OK U.S. Agent -> images\Temporada_3\ANTIHÉROES_STRETCH_GOALS\U.S._Agent\promo_principal.jpg
+2026-10-15 16:32:27,377 INFO OK Darkstar -> images\Temporada_3\ANTIHÉROES_STRETCH_GOALS\Darkstar\promo_principal.jpg
+2026-10-15 16:32:40,003 INFO OK Red Hulk -> images\Temporada_3\ANTIHÉROES_STRETCH_GOALS\Red_Hulk\promo_principal.jpg
+2026-10-15 16:32:57,345 INFO OK Ursa Major -> images\Temporada_3\ANTIHÉROES_STRETCH_GOALS\Ursa_Major\promo_principal.jpg
+2026-10-15 16:33:09,949 INFO OK Red Guardian -> images\Temporada_3\ANTIHÉROES_STRETCH_GOALS\Red_Guardian\promo_principal.jpg
+2026-10-15 16:33:22,801 INFO OK White Widow -> images\Temporada_3\ANTIHÉROES_STRETCH_GOALS\White_Widow\promo_principal.jpg
+2026-10-15 16:33:32,454 INFO OK Moonstone -> images\Temporada_3\ANTIHÉROES_STRETCH_GOALS\Moonstone\promo_principal.jpg
+2026-10-15 16:33:42,438 INFO OK Klaw -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Klaw\promo_principal.jpg
+2026-10-15 16:33:54,883 INFO OK Chameleon -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Chameleon\promo_principal.jpg
+2026-10-15 16:34:07,423 INFO OK Titania -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Titania\promo_principal.jpg
+2026-10-15 16:34:19,930 INFO OK Absorbing Man -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Absorbing_Man\promo_principal.jpg
+2026-10-15 16:34:30,051 INFO OK Abomination -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Abomination\promo_principal.jpg
+2026-10-15 16:34:42,384 INFO OK Crimson Dynamo -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Crimson_Dynamo\promo_principal.jpg
+2026-10-15 16:34:52,359 INFO OK Crossbones -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Crossbones\promo_principal.jpg
+2026-10-15 16:35:05,116 INFO OK Maximus -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Maximus\promo_principal.jpg
+2026-10-15 16:35:20,101 INFO OK Iron Patriot -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Iron_Patriot\promo_principal.jpg
+2026-10-15 16:35:32,639 INFO OK Blastaar -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Blastaar\promo_principal.jpg
+2026-10-15 16:35:42,567 INFO OK Hobgoblin -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Hobgoblin\promo_principal.jpg
+2026-10-15 16:35:54,859 INFO OK High Evolutionary -> images\Temporada_3\VILLANOS_STRETCH_GOALS\High_Evolutionary\promo_principal.jpg
+2026-10-15 16:36:07,802 INFO OK Enchantress -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Enchantress\promo_principal.jpg
+2026-10-15 16:36:20,115 INFO OK Gorr -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Gorr\promo_principal.jpg
+2026-10-15 16:36:35,381 INFO OK Knull -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Knull\promo_principal.jpg
+2026-10-15 16:36:47,668 INFO OK Mole Man -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Mole_Man\promo_principal.jpg
+2026-10-15 16:37:02,402 INFO OK Lizard -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Lizard\promo_principal.jpg
+2026-10-15 16:37:12,494 INFO OK Purple Man -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Purple_Man\promo_principal.jpg
+2026-10-15 16:37:22,374 INFO OK Shocker -> images\Temporada_3\VILLANOS_STRETCH_GOALS\Shocker\promo_principal.jpg
+2026-10-15 16:37:27,611 INFO OK Galactus -> images\Temporada_3\THE_COMING_OF_GALACTUS\Galactus\promo_principal.jpg
+2026-10-15 16:37:29,745 ERROR Air-Walker: Sin candidato promocional válido. 
+2026-10-15 16:37:32,224 ERROR Firelord: Sin candidato promocional válido. 
+2026-10-15 16:37:34,724 ERROR Nova - Frankie Raye: Sin candidato promocional válido. 
+2026-10-15 16:37:37,240 ERROR Terrax: Sin candidato promocional válido. 
+2026-10-15 16:37:39,719 ERROR Iron Lad: Sin candidato promocional válido. 
+2026-10-15 16:37:45,656 INFO OK Wonder Man -> images\Temporada_1\CORE_BOX\Iron_Man\promo_principal.jpg
+2026-10-15 16:37:47,220 ERROR Spectrum: Sin candidato promocional válido. 
+2026-10-15 16:37:53,016 INFO OK Captain America - Civil War -> images\Temporada_3\CIVIL_WAR\Captain_America_-_Civil_War\promo_principal.jpg
+2026-10-15 16:37:57,584 INFO OK Iron Man - Civil War -> images\Temporada_3\CIVIL_WAR\Captain_America_-_Civil_War\promo_principal.jpg
+2026-10-15 16:37:59,725 ERROR Tigra: Sin candidato promocional válido. 
+2026-10-15 16:38:02,240 ERROR Kate Bishop: Sin candidato promocional válido. 
+2026-10-15 16:38:04,724 ERROR Goliath: Sin candidato promocional válido. 
+2026-10-15 16:38:07,242 ERROR Yellowjacket: Sin candidato promocional válido. 
+2026-10-15 16:38:09,723 ERROR Hulkling: Sin candidato promocional válido. 
+2026-10-15 16:38:14,759 INFO OK Iron Spider -> images\Temporada_1\EXPANSIONES\Spider-Man\promo_principal.jpg
+2026-10-15 16:38:19,797 INFO OK X-Man -> images\Temporada_1\CORE_BOX\Iron_Man\promo_principal.jpg
+2026-10-15 16:38:25,044 INFO OK Magneto - Age of Apocalypse -> images\Temporada_3\AGE_OF_APOCALYPSE\Magneto_-_Age_of_Apocalypse\promo_principal.jpg
+2026-10-15 16:38:27,234 ERROR Morph: Sin candidato promocional válido. 
+2026-10-15 16:38:29,727 ERROR Sabretooth & Wildchild: Sin candidato promocional válido. 
+2026-10-15 16:38:34,993 INFO OK Apocalypse - Age of Apocalypse -> images\Temporada_3\AGE_OF_APOCALYPSE\Magneto_-_Age_of_Apocalypse\promo_principal.jpg
+2026-10-15 16:38:37,228 ERROR Dark Beast: Sin candidato promocional válido. 
+2026-10-15 16:38:39,728 ERROR Nemesis: Sin candidato promocional válido. 
+2026-10-15 16:38:44,805 INFO OK Hulkbuster Iron Man -> images\Temporada_1\CORE_BOX\Iron_Man\promo_principal.jpg
+2026-10-15 16:38:47,229 ERROR Hercules: Sin candidato promocional válido. 
+2026-10-15 16:38:49,734 ERROR Doc Samson: Sin candidato promocional válido. 
+2026-10-15 16:38:52,229 ERROR Ares: Sin candidato promocional válido. 
+2026-10-15 16:38:57,717 INFO OK Gladiator Hulk -> images\Temporada_1\CORE_BOX\Hulk\promo_principal.jpg
+2026-10-15 16:38:59,734 ERROR Sentry: Sin candidato promocional válido. 
+2026-10-15 16:39:04,764 INFO OK Black Bolt -> images\Temporada_1\CORE_BOX\Black_Widow\promo_principal.jpg
+2026-10-15 16:39:07,232 ERROR Medusa: Sin candidato promocional válido. 
+2026-10-15 16:39:09,736 ERROR Karnak: Sin candidato promocional válido. 
+2026-10-15 16:39:12,232 ERROR Gorgon: Sin candidato promocional válido. 
+2026-10-15 16:39:14,731 ERROR Crystal: Sin candidato promocional válido. 
+2026-10-15 16:39:17,232 ERROR Gladiator: Sin candidato promocional válido. 
+2026-10-15 16:39:19,740 ERROR Vulcan: Sin candidato promocional válido. 
+2026-10-15 16:39:22,233 ERROR Nick Fury Sr.: Sin candidato promocional válido. 
+2026-10-15 16:39:24,735 ERROR Quake: Sin candidato promocional válido. 
+2026-10-15 16:39:27,238 ERROR Maria Hill: Sin candidato promocional válido. 
+2026-10-15 16:39:29,734 ERROR Veranke: Sin candidato promocional válido. 
+2026-10-15 16:39:32,233 ERROR Super-Skrull: Sin candidato promocional válido. 
+2026-10-15 16:39:34,736 ERROR Nova - Richard Rider: Sin candidato promocional válido. 
+2026-10-15 16:39:37,236 ERROR Quasar: Sin candidato promocional válido. 
+2026-10-15 16:39:42,577 INFO OK Ronan - Annihilation -> images\Temporada_3\ANNIHILATION\Ronan_-_Annihilation\promo_principal.jpg
+2026-10-15 16:39:44,737 ERROR Annihilus: Sin candidato promocional válido. 
+2026-10-15 16:39:47,303 ERROR Agent Venom: Sin candidato promocional válido. 
+2026-10-15 16:39:49,736 ERROR Silver Sable: Sin candidato promocional válido. 
+2026-10-15 16:39:52,242 ERROR Morbius: Sin candidato promocional válido. 
+2026-10-15 16:39:57,616 INFO OK Carnage - Maximum Carnage -> images\Temporada_3\MAXIMUM_CARNAGE\Carnage_-_Maximum_Carnage\promo_principal.jpg
+2026-10-15 16:39:59,741 ERROR Shriek: Sin candidato promocional válido. 
+2026-10-15 16:40:02,240 ERROR Doppelganger: Sin candidato promocional válido. 
+2026-10-15 16:40:04,738 ERROR Demogoblin: Sin candidato promocional válido. 

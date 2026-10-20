@@ -1,7 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import os
 import ssl
+import tempfile
+import time
 from pathlib import Path
 
 # Evitar RecursionError de pip_system_certs + truststore + httpx2 en Python 3.14
@@ -14,6 +17,7 @@ except Exception:
 
 import numpy as np
 from PIL import Image, ImageDraw
+import requests
 from scipy import ndimage
 import trimesh
 
@@ -21,6 +25,17 @@ import trimesh
 DEFAULT_INPUT = Path(
     r"C:\git\test\MarvelUnitedPromos\images\Temporada_1\PROMOS_STRETCH_GOALS\Elektra\figurita.jpg"
 )
+ENV_FILE = Path(r"C:\git\test\.env")
+
+
+def load_env_key(var_name: str = "TRIPO_API_KEY") -> str | None:
+    if os.environ.get(var_name):
+        return os.environ[var_name]
+    if ENV_FILE.is_file():
+        for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
+            if line.strip().startswith(f"{var_name}="):
+                return line.split("=", 1)[1].strip()
+    return None
 
 
 def extract_clean_views(
@@ -141,6 +156,125 @@ def try_huggingface_multiview(
         except Exception as exc:
             print(f"[Aviso] No se pudo conectar a {space} ({type(exc).__name__}: {exc})")
     return False
+
+
+def convert_mesh_to_stl(
+    input_mesh_path: Path,
+    output_stl: Path,
+    target_height_mm: float = 42.0,
+) -> trimesh.Trimesh:
+    """
+    Convierte un archivo 3D (.glb, .obj, .3mf) descargado de Tripo3D Studio o MakerWorld
+    a un archivo .STL orientado y escalado a 42 mm listo para laminar.
+    """
+    mesh = trimesh.load(input_mesh_path, force="mesh")
+    # En GLB (glTF), el eje vertical suele ser Y; pasamos a Z vertical para slicers
+    v = mesh.vertices.copy()
+    ext = mesh.extents
+    if ext[1] > ext[2]:
+        mesh.vertices = np.column_stack([v[:, 0], -v[:, 2], v[:, 1]])
+
+    bounds = mesh.bounds
+    size = bounds[1] - bounds[0]
+    mesh.vertices *= target_height_mm / size[2]
+
+    bounds = mesh.bounds
+    center_xy = 0.5 * (bounds[0, :2] + bounds[1, :2])
+    mesh.vertices[:, 0] -= center_xy[0]
+    mesh.vertices[:, 1] -= center_xy[1]
+    mesh.vertices[:, 2] -= bounds[0, 2]
+
+    mesh.export(output_stl)
+    print(f"[OK] Malla convertida y escalada a STL en: {output_stl}")
+    return mesh
+
+
+def try_tripo3d_multiview(
+    front_png: Path,
+    back_png: Path,
+    output_stl: Path,
+    api_key: str,
+    target_height_mm: float = 42.0,
+) -> trimesh.Trimesh | None:
+    """
+    Usa la API oficial de Tripo3D (https://api.tripo3d.ai/v2/openapi, compatible con Zscaler)
+    para generar el modelo 3D a partir de las vistas frontal y trasera.
+    """
+    headers = {"Authorization": f"Bearer {api_key}"}
+    base_url = "https://api.tripo3d.ai/v2/openapi"
+
+    print("[Tripo3D] Subiendo vistas frontal y trasera a api.tripo3d.ai ...")
+    with open(front_png, "rb") as f1:
+        r1 = requests.post(
+            f"{base_url}/upload",
+            headers=headers,
+            files={"file": (front_png.name, f1, "image/png")},
+            timeout=30,
+        )
+    with open(back_png, "rb") as f2:
+        r2 = requests.post(
+            f"{base_url}/upload",
+            headers=headers,
+            files={"file": (back_png.name, f2, "image/png")},
+            timeout=30,
+        )
+
+    if r1.status_code != 200 or r2.status_code != 200:
+        print(f"[Aviso Tripo3D] Error subiendo imágenes: {r1.text} / {r2.text}")
+        return None
+
+    t_front = r1.json()["data"]["image_token"]
+    t_back = r2.json()["data"]["image_token"]
+
+    payload = {
+        "type": "multiview_to_model",
+        "files": [
+            {"type": "png", "file_token": t_front},
+            {},
+            {"type": "png", "file_token": t_back},
+            {},
+        ],
+    }
+    r_task = requests.post(
+        f"{base_url}/task", headers=headers, json=payload, timeout=30
+    )
+    if r_task.status_code != 200 or r_task.json().get("code") != 0:
+        print(f"[Aviso Tripo3D] No se pudo crear la tarea API: {r_task.text}")
+        return None
+
+    task_id = r_task.json()["data"]["task_id"]
+    print(f"[Tripo3D] Tarea creada ({task_id}). Esperando generación 3D...")
+
+    for _ in range(90):
+        time.sleep(3)
+        r_poll = requests.get(
+            f"{base_url}/task/{task_id}", headers=headers, timeout=20
+        )
+        data = r_poll.json().get("data", {})
+        status = data.get("status")
+        progress = data.get("progress", 0)
+        print(f"  - Estado: {status} ({progress}%)")
+        if status == "success":
+            Output = data.get("output", {})
+            model_url = (
+                Output.get("model")
+                or Output.get("pbr_model")
+                or Output.get("base_model")
+            )
+            if not model_url:
+                print(f"[Aviso Tripo3D] Respuesta sin URL de modelo: {data}")
+                return None
+            r_dl = requests.get(model_url, timeout=60)
+            with tempfile.NamedTemporaryFile(suffix=".glb", delete=False) as tmp:
+                tmp.write(r_dl.content)
+                tmp_path = Path(tmp.name)
+            return convert_mesh_to_stl(tmp_path, output_stl, target_height_mm)
+        if status in ("failed", "cancelled", "expired"):
+            print(f"[Aviso Tripo3D] La tarea terminó con estado: {status}")
+            return None
+
+    print("[Aviso Tripo3D] Tiempo de espera agotado.")
+    return None
 
 
 def build_bilateral_3d_stl(
@@ -477,6 +611,18 @@ def main() -> None:
         help="Token opcional de Hugging Face para la API cloud",
     )
     parser.add_argument(
+        "--tripo-key",
+        type=str,
+        default=None,
+        help="Clave API de Tripo3D (tsk_...). Si se omite, se busca TRIPO_API_KEY en .env",
+    )
+    parser.add_argument(
+        "--from-mesh",
+        type=Path,
+        default=None,
+        help="Convierte un archivo .glb/.obj descargado de studio.tripo3d.ai o makerworld.com a .STL",
+    )
+    parser.add_argument(
         "--local-only",
         action="store_true",
         help="Omitir intento cloud (útil bajo proxy corporativo Zscaler) y generar directamente en local",
@@ -488,13 +634,25 @@ def main() -> None:
     back_png = out_dir / "elektra_trasera.png"
     preview_png = out_dir / "elektra_stl_preview.png"
 
+    if args.from_mesh:
+        mesh = convert_mesh_to_stl(args.from_mesh, args.output)
+        render_stl_preview(mesh, preview_png)
+        return
+
     front_rgba, back_rgba = extract_clean_views(args.input, front_png, back_png)
+
+    tripo_key = args.tripo_key or load_env_key("TRIPO_API_KEY")
+    if not args.local_only and tripo_key:
+        mesh_tripo = try_tripo3d_multiview(front_png, back_png, args.output, tripo_key)
+        if mesh_tripo is not None:
+            render_stl_preview(mesh_tripo, preview_png)
+            return
 
     if not args.local_only:
         if try_huggingface_multiview(front_png, back_png, args.output, args.hf_token):
             return
         print(
-            "[Info] El proxy de red (Zscaler) bloqueó el acceso a *.hf.space.\n"
+            "[Info] No se pudo usar la API cloud (sin créditos API o bloqueo Zscaler).\n"
             "       Activando reconstrucción 3D bilateral local..."
         )
 

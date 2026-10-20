@@ -161,11 +161,11 @@ def try_huggingface_multiview(
 def convert_mesh_to_stl(
     input_mesh_path: Path,
     output_stl: Path,
-    target_height_mm: float = 42.0,
+    base_size_mm: float = 30.0,
 ) -> trimesh.Trimesh:
     """
     Convierte un archivo 3D (.glb, .obj, .3mf) descargado de Tripo3D Studio o MakerWorld
-    a un archivo .STL orientado y escalado a 42 mm listo para laminar.
+    a un archivo .STL orientado y escalado con peana de 30x30 mm listo para laminar.
     """
     mesh = trimesh.load(input_mesh_path, force="mesh")
     # En GLB (glTF), el eje vertical suele ser Y; pasamos a Z vertical para slicers
@@ -175,17 +175,27 @@ def convert_mesh_to_stl(
         mesh.vertices = np.column_stack([v[:, 0], -v[:, 2], v[:, 1]])
 
     bounds = mesh.bounds
-    size = bounds[1] - bounds[0]
-    mesh.vertices *= target_height_mm / size[2]
-
-    bounds = mesh.bounds
-    center_xy = 0.5 * (bounds[0, :2] + bounds[1, :2])
-    mesh.vertices[:, 0] -= center_xy[0]
-    mesh.vertices[:, 1] -= center_xy[1]
     mesh.vertices[:, 2] -= bounds[0, 2]
+    total_h = mesh.extents[2]
+
+    # Medir los vértices de la peana (10% inferior de la altura) y escalar a 30x30 mm
+    base_mask = mesh.vertices[:, 2] <= (0.10 * total_h)
+    base_verts = mesh.vertices[base_mask]
+    base_w = float(base_verts[:, 0].max() - base_verts[:, 0].min())
+    base_d = float(base_verts[:, 1].max() - base_verts[:, 1].min())
+
+    sx = base_size_mm / max(base_w, 1e-5)
+    sy = base_size_mm / max(base_d, 1e-5)
+    sz = sx  # Escala vertical proporcional al diámetro de peana
+
+    base_cx = 0.5 * float(base_verts[:, 0].max() + base_verts[:, 0].min())
+    base_cy = 0.5 * float(base_verts[:, 1].max() + base_verts[:, 1].min())
+    mesh.vertices[:, 0] = (mesh.vertices[:, 0] - base_cx) * sx
+    mesh.vertices[:, 1] = (mesh.vertices[:, 1] - base_cy) * sy
+    mesh.vertices[:, 2] *= sz
 
     mesh.export(output_stl)
-    print(f"[OK] Malla convertida y escalada a STL en: {output_stl}")
+    print(f"[OK] Malla convertida con peana {base_size_mm:.1f}x{base_size_mm:.1f} mm en: {output_stl}")
     return mesh
 
 
@@ -281,7 +291,7 @@ def build_bilateral_3d_stl(
     front_rgba: np.ndarray,
     back_rgba: np.ndarray,
     output_stl: Path,
-    target_height_mm: float = 42.0,
+    base_size_mm: float = 30.0,
 ) -> trimesh.Trimesh:
     """
     Reconstruye una miniatura 3D 100% cerrada (watertight) combinando:
@@ -362,7 +372,7 @@ def build_bilateral_3d_stl(
             row_cx[y, 0] = 0.5 * (xs_row[-1] + xs_row[0])
     cyl_z = np.sqrt(np.maximum(row_half_w**2 - (xx - row_cx) ** 2, 0.0))
     vol_combined = (1.0 - base_transition) * vol_smooth + base_transition * np.maximum(
-        vol_smooth, cyl_z * 0.85
+        vol_smooth, cyl_z
     )
 
     # 2. Relieve de detalle (Shape-from-Shading multi-escala)
@@ -479,25 +489,39 @@ def build_bilateral_3d_stl(
     v = mesh.vertices.copy()
     mesh.vertices = np.column_stack([v[:, 0], -v[:, 2], v[:, 1]])
 
-    bounds = mesh.bounds
-    size = bounds[1] - bounds[0]
-    scale_mm = target_height_mm / size[2]
-    mesh.vertices *= scale_mm
+    # Apoyar en Z = 0 antes de medir la peana
+    mesh.vertices[:, 2] -= mesh.bounds[0, 2]
+    total_h_px = mesh.extents[2]
 
-    bounds = mesh.bounds
-    center_xy = 0.5 * (bounds[0, :2] + bounds[1, :2])
-    mesh.vertices[:, 0] -= center_xy[0]
-    mesh.vertices[:, 1] -= center_xy[1]
-    mesh.vertices[:, 2] -= bounds[0, 2]
+    # Seleccionar los vértices de la peana (10% inferior de la altura) y escalar a 30.0 x 30.0 mm
+    base_mask = mesh.vertices[:, 2] <= (0.10 * total_h_px)
+    base_verts = mesh.vertices[base_mask]
+    base_w_px = float(base_verts[:, 0].max() - base_verts[:, 0].min())
+    base_d_px = float(base_verts[:, 1].max() - base_verts[:, 1].min())
 
-    mesh.vertices[:, 2] = np.maximum(mesh.vertices[:, 2] - 0.35, 0.0)
+    scale_x = base_size_mm / base_w_px
+    scale_y = base_size_mm / base_d_px
+    scale_z = scale_x  # Altura proporcional al diámetro de la peana
+
+    base_cx = 0.5 * float(base_verts[:, 0].max() + base_verts[:, 0].min())
+    base_cy = 0.5 * float(base_verts[:, 1].max() + base_verts[:, 1].min())
+
+    mesh.vertices[:, 0] = (mesh.vertices[:, 0] - base_cx) * scale_x
+    mesh.vertices[:, 1] = (mesh.vertices[:, 1] - base_cy) * scale_y
+    mesh.vertices[:, 2] = np.maximum(mesh.vertices[:, 2] * scale_z - 0.35, 0.0)
+
+    # Verificar medidas finales de la peana
+    final_base = mesh.vertices[mesh.vertices[:, 2] <= 4.0]
+    peana_x = float(final_base[:, 0].max() - final_base[:, 0].min())
+    peana_y = float(final_base[:, 1].max() - final_base[:, 1].min())
 
     print(
         f"[OK] Archivo STL generado en: {output_stl}\n"
         f"     - Vértices: {len(mesh.vertices):,}\n"
         f"     - Triángulos: {len(mesh.faces):,}\n"
         f"     - Es malla cerrada (watertight): {mesh.is_watertight}\n"
-        f"     - Dimensiones (mm): {mesh.extents[0]:.1f} (ancho) x {mesh.extents[1]:.1f} (fondo) x {mesh.extents[2]:.1f} (alto) mm"
+        f"     - Dimensiones de la peana (mm): {peana_x:.1f} x {peana_y:.1f} mm\n"
+        f"     - Dimensiones totales (mm): {mesh.extents[0]:.1f} (ancho) x {mesh.extents[1]:.1f} (fondo) x {mesh.extents[2]:.1f} (alto) mm"
     )
     mesh.export(output_stl)
     return mesh

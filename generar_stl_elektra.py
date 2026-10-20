@@ -333,6 +333,7 @@ def build_bilateral_3d_stl(
     back_rgba: np.ndarray,
     output_stl: Path,
     base_size_mm: float = 30.0,
+    scaffold_stl: Path | None = None,
 ) -> trimesh.Trimesh:
     """
     Reconstruye una miniatura 3D 100% cerrada (watertight) combinando:
@@ -366,6 +367,7 @@ def build_bilateral_3d_stl(
     if num > 1:
         sizes = ndimage.sum(f_mask, lbl, range(1, num + 1))
         f_mask = lbl == (np.argmax(sizes) + 1)
+    f_mask = ndimage.gaussian_filter(f_mask.astype(np.float32), sigma=1.2) > 0.5
 
     def get_luminance(rgba: np.ndarray, mask: np.ndarray) -> np.ndarray:
         lum = (
@@ -388,7 +390,7 @@ def build_bilateral_3d_stl(
     b_lum_combined = b_weight * b_lum + (1.0 - b_weight) * (0.75 * f_lum)
     b_lum_combined = np.where(f_mask, b_lum_combined, 0.0)
 
-    # 1. Campo de volumen 3D anatómico (transformada de distancia multi-escala)
+    # 1. Campo de volumen 3D anatómico + Andamiaje 3D opcional de Hunyuan3D
     dist = ndimage.distance_transform_edt(f_mask).astype(np.float32)
     max_r = 36.0 * scale
     d_clamped = np.minimum(dist, max_r)
@@ -398,12 +400,44 @@ def build_bilateral_3d_stl(
         ndimage.gaussian_filter(np.minimum(dist, 50.0 * scale), sigma=8.0 * scale)
         * 0.45
     )
-    vol_smooth = ndimage.gaussian_filter(vol_profile + vol_broad, sigma=2.0 * scale)
+    vol_local = ndimage.gaussian_filter(vol_profile + vol_broad, sigma=2.5 * scale)
+
+    hy_center = np.zeros((H, W), dtype=np.float32)
+    if scaffold_stl is not None and scaffold_stl.is_file():
+        print(f"[Híbrido] Extrayendo campo de profundidad 3D desde: {scaffold_stl}")
+        hy_mesh = trimesh.load(scaffold_stl, force="mesh")
+        hy_v = hy_mesh.vertices.copy()
+        fy, fx = np.where(f_mask)
+        f_xmin, f_xmax = fx.min(), fx.max()
+        f_ymin, f_ymax = fy.min(), fy.max()
+        m_xmin, m_xmax = hy_v[:, 0].min(), hy_v[:, 0].max()
+        m_zmin, m_zmax = hy_v[:, 2].min(), hy_v[:, 2].max()
+        sx_h, sz_h, dx_h, dy_h = 13.584, 14.351, -3, -12
+        px = np.clip(np.round((hy_v[:, 0] - m_xmin) * sx_h + f_xmin + dx_h).astype(np.int32), 0, W - 1)
+        py = np.clip(np.round(f_ymax - (hy_v[:, 2] - m_zmin) * sz_h + dy_h).astype(np.int32), 0, H - 1)
+        hy_depth_px = -hy_v[:, 1] * (0.5 * (sx_h + sz_h))
+        z_max_g = np.full((H, W), -np.inf, dtype=np.float32)
+        z_min_g = np.full((H, W), np.inf, dtype=np.float32)
+        np.maximum.at(z_max_g, (py, px), hy_depth_px)
+        np.minimum.at(z_min_g, (py, px), hy_depth_px)
+        valid_hy = np.isfinite(z_max_g) & (z_max_g > z_min_g)
+        z_max_f = ndimage.maximum_filter(np.where(valid_hy, z_max_g, -1e5), size=5)
+        z_min_f = ndimage.minimum_filter(np.where(valid_hy, z_min_g, 1e5), size=5)
+        valid_hy = (z_max_f > -1e4) & (z_min_f < 1e4)
+        _, indices = ndimage.distance_transform_edt(~valid_hy, return_indices=True)
+        z_front_hy = z_max_f[indices[0], indices[1]]
+        z_back_hy = z_min_f[indices[0], indices[1]]
+        hy_center = ndimage.gaussian_filter(0.5 * (z_front_hy + z_back_hy), sigma=7.0 * scale)
+        hy_half_thick = ndimage.gaussian_filter(0.5 * np.maximum(z_front_hy - z_back_hy, 6.0), sigma=7.0 * scale)
+        vol_smooth = 0.60 * hy_half_thick + 0.40 * vol_local
+    else:
+        vol_smooth = vol_local
 
     # En la zona de la peana (y >= 272 * scale), dar perfil cilíndrico 3D real
     yy, xx = np.mgrid[0:H, 0:W]
     base_y_start = 272 * scale
     base_transition = np.clip((yy - base_y_start) / (14.0 * scale), 0.0, 1.0)
+    z_center = (1.0 - base_transition) * hy_center * 0.90
     row_half_w = np.zeros((H, 1), dtype=np.float32)
     row_cx = np.full((H, 1), W / 2.0, dtype=np.float32)
     for y in range(H):
@@ -426,21 +460,17 @@ def build_bilateral_3d_stl(
     f_detail = compute_sfs_detail(f_lum)
     b_detail = compute_sfs_detail(b_lum_combined)
 
-    edge_taper = np.clip(dist / (3.0 * scale), 0.0, 1.0)
-    detail_taper = np.clip((dist - 1.5) / (4.0 * scale), 0.0, 1.0)
-    z_front = np.where(
-        f_mask,
-        np.maximum(vol_combined * edge_taper + f_detail * detail_taper, 0.4),
-        0.0,
+    t_edge = np.clip(dist / (8.0 * scale), 0.0, 1.0)
+    edge_taper = np.sqrt(2.0 * t_edge - t_edge * t_edge)
+    detail_taper = np.clip((dist - 2.5 * scale) / (5.0 * scale), 0.0, 1.0)
+    half_f = ndimage.gaussian_filter(
+        np.maximum(vol_combined * edge_taper + f_detail * detail_taper, 0.0), sigma=0.65
     )
-    z_back = np.where(
-        f_mask,
-        -np.maximum(vol_combined * edge_taper + b_detail * detail_taper, 0.4),
-        0.0,
+    half_b = ndimage.gaussian_filter(
+        np.maximum(vol_combined * edge_taper + b_detail * detail_taper, 0.0), sigma=0.65
     )
-    # Suavizado ligero en 2D para superficies limpias sin artefactos de borde
-    z_front = np.where(f_mask, ndimage.gaussian_filter(z_front, sigma=0.65), 0.0)
-    z_back = np.where(f_mask, ndimage.gaussian_filter(z_back, sigma=0.65), 0.0)
+    z_front = np.where(f_mask, z_center + half_f, z_center)
+    z_back = np.where(f_mask, z_center - half_b, z_center)
 
     # 3. Construcción de malla 100% cerrada (watertight) mediante celdas con paredes laterales
     # Eliminar posibles uniones diagonales de 1 solo vértice (non-manifold)
@@ -523,8 +553,28 @@ def build_bilateral_3d_stl(
     all_tris = np.vstack(tris_list)
     mesh = trimesh.Trimesh(vertices=verts_np, faces=all_tris, process=True)
 
-    # Suavizado Laplaciano suave en 3D para redondear el contorno lateral
-    trimesh.smoothing.filter_laplacian(mesh, lamb=0.35, iterations=3)
+    # Suavizado selectivo de contorno lateral (preserva al 100% la nitidez interior de cara/armadura)
+    v_curr = mesh.vertices.copy()
+    vx_i = np.clip(np.round(v_curr[:, 0]).astype(np.int32), 0, W - 1)
+    vy_i = np.clip(np.round(H - 1 - v_curr[:, 1]).astype(np.int32), 0, H - 1)
+    v_dist = dist[vy_i, vx_i]
+    rim_w = np.clip(1.0 - (v_dist / (7.0 * scale)), 0.08, 1.0)[:, None]
+
+    edges = mesh.edges_unique
+    u0, u1 = edges[:, 0], edges[:, 1]
+    deg = np.zeros((len(v_curr), 1), dtype=np.float64)
+    np.add.at(deg, u0, 1.0)
+    np.add.at(deg, u1, 1.0)
+    deg = np.maximum(deg, 1.0)
+
+    for _ in range(25):
+        nb_sum = np.zeros_like(v_curr)
+        np.add.at(nb_sum, u0, v_curr[u1])
+        np.add.at(nb_sum, u1, v_curr[u0])
+        nb_avg = nb_sum / deg
+        v_curr = v_curr + 0.48 * rim_w * (nb_avg - v_curr)
+
+    mesh.vertices = v_curr
 
     # Orientar para slicers 3D: X = ancho, Y = profundidad (-Z_img), Z = altura (Y_img)
     v = mesh.vertices.copy()
@@ -696,6 +746,12 @@ def main() -> None:
         help="Fusiona 2 modelos .glb gratuitos de 1 sola vista (frontal y trasera) en un único .STL 30x30 mm",
     )
     parser.add_argument(
+        "--scaffold-stl",
+        type=Path,
+        default=Path(r"C:\git\test\elektra_hunyuan3d_ULTRA_HD_30x30.stl"),
+        help="Usa el modelo 3D de Hunyuan3D como andamiaje de profundidad 3D para combinar ambos enfoques",
+    )
+    parser.add_argument(
         "--local-only",
         action="store_true",
         help="Omitir intento cloud (útil bajo proxy corporativo Zscaler) y generar directamente en local",
@@ -734,7 +790,9 @@ def main() -> None:
             "       Activando reconstrucción 3D bilateral local..."
         )
 
-    mesh = build_bilateral_3d_stl(front_rgba, back_rgba, args.output)
+    mesh = build_bilateral_3d_stl(
+        front_rgba, back_rgba, args.output, scaffold_stl=args.scaffold_stl
+    )
     render_stl_preview(mesh, preview_png)
 
 
